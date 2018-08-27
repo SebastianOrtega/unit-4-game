@@ -1,0 +1,27 @@
+body {
+    background-image: url("../images/star-wars-bg.jpg");
+    background-position: initial;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    position: relative;
+    color: white;
+    margin: 2%;
+}
+
+h1 {
+    float: right;
+    color: white;
+    margin-right: 10%;
+    margin-top: 3%;
+    font-size: 5ch;
+    font-family: 'Press Start 2P', cursive;
+}
+
+.characteres {
+    margin-top: 4%;
+    font-family: 'Chango', cursive;
+}
+
+#userCharacter {
+    margin-top: 1%;
+}
