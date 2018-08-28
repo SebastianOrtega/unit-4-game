@@ -7,29 +7,24 @@ $(document).ready(function () {
 
     let all = ["luke", "obi", "sidious", "maul"];
 
-    let luke = {
-        name: "Luke SkyWalker",
-        attckPoints: 0,
-        defensePoints: 0
-    };
-    let obi = {
-        name: "Obi Wan",
-        attckPoints: 0,
-        defensePoints: 0
-    };
-    let sidious = {
-        name: "Darth Sidious",
-        attckPoints: 0,
-        defensePoints: 0
-    };
-    let maul = {
-        name: "Darth Maul",
-        attckPoints: 0,
-        defensePoints: 0
-    };
+    function personaje (name,attckPoints,defensePoints){
+        this.name=name;
+        this.attckPoints=attckPoints;
+        this.defensePoints=defensePoints;
+    } 
+
+    let luke = new personaje("Luke Skywalker",0,0);
+    let obi = new personaje("Obi Wan",0,0);
+    let sidious = new personaje("Darth Sidious",0,0);
+    let maul = new personaje("Darth Maul");
 
     let userChar = "";
     let userEnemy = "";
+
+    $(window).resize(function() {
+        console.log("width: "+$(window).width());
+        console.log("width: "+$(window).height());
+    });
 
     //Funcion para crear caracteres 
     function createChar(where, char, charname, showDF) {
@@ -95,10 +90,11 @@ $(document).ready(function () {
             userEnemy = t.target.parentElement.id;
             console.log("Enemy: " + userEnemy);
             $("#button").show();
-            let headingEnemy = $("<h2>");
-            $(headingEnemy).text("Defender");
-            $("#defender").append(headingEnemy);
-            //$("defender").text("")
+            if(all.length>2){
+                let headingEnemy = $("<h2>");
+                $(headingEnemy).text("Defender");
+                $("#defender").append(headingEnemy);
+            }
             //Borra enemigo 
             $("#" + userEnemy).remove();
             //borra de array a enemigo
@@ -139,9 +135,10 @@ $(document).ready(function () {
             $("#" + userEnemy + "-points").text(eval(userEnemy).defensePoints);
             $("#" + userChar + "-points").text(eval(userChar).defensePoints);
             $("#defenderText2").text(eval(userEnemy).name + " attacked you back for " + eval(userEnemy).attckPoints + " damage");
+            $("#defenderText3").text("");
 
         }
-        if (eval(userChar).defensePoints > 0 && eval(userEnemy).defensePoints < 0) {
+        if (eval(userChar).defensePoints > 0 && eval(userEnemy).defensePoints <= 0) {
             $('#defenderText3').css('font-size', '2ch');
             $("#defenderText3").text("Won, please select next oponent");
             $("#" + userEnemy).remove();
@@ -152,7 +149,8 @@ $(document).ready(function () {
             console.log("Ganado");
         }
 
-        if (eval(userChar).defensePoints < 0) {
+        if (eval(userChar).defensePoints <= 0) {
+            $("#defenderText3").text("You Loose");
             console.log("Perdido");
         }
 

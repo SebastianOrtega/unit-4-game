@@ -14,7 +14,7 @@ h1 {
     margin-right: 10%;
     margin-bottom: 5%;
     /* margin-top: 3%; */
-    font-size: 5ch;
+    font-size: 4vw;
     font-family: 'Press Start 2P', cursive;
 }
 
@@ -30,12 +30,12 @@ h1 {
 .border {
     display: inline-block;
     background: white;
-    height: 145px;
+    height: 5%px;
     border: 2px;
     border-style: solid;
     border-color: green;
     color: black;
-    font-size: 1ch;
+    font-size: 20px;
     text-align: center;
     line-height: 1.5;
     margin-top: 1%;
@@ -51,7 +51,7 @@ img {
 #button {
     display: none;
     font-size: 2ch;
-    width: 100px;
+    width: 10%;
     font-family: 'Chango', cursive;
     margin: 1%;
 }
