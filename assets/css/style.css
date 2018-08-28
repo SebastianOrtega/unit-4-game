@@ -48,10 +48,10 @@ img {
     margin: 0;
 }
 
-#button {
+.button {
     display: none;
-    font-size: 2ch;
-    width: 10%;
+    font-size: 2vw;
+    width: 20%;
     font-family: 'Chango', cursive;
     margin: 1%;
 }
@@ -68,4 +68,10 @@ h2 {
 h3 {
     font-size: 2ch;
     font-family: 'Chango', cursive;
+}
+#restartBtn {
+    font-size: 2vw;
+    width: 20%;
+    font-family: 'Chango', cursive;
+    margin: 1%;
 }
