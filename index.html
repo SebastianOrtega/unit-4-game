@@ -9,21 +9,49 @@
     <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" href="assets/css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Chango|Press+Start+2P" rel="stylesheet">
+    <script src="/assets/javascript/jquery-3.3.1.min.js"></script>
+    <script src="/assets/javascript/game.js"></script>
+
 </head>
 
 <body>
 
     <h1>StarWars RPG</h1>
     <div class="characteres" id="pickCharacter">
-        <img src="http://via.placeholder.com/100x100" alt="placeholder">
-        <img src="http://via.placeholder.com/100x100" alt="placeholder">
-        <img src="http://via.placeholder.com/100x100" alt="placeholder">
-        <img src="http://via.placeholder.com/100x100" alt="placeholder">
+        <div class="border" id="luke">
+            <p>Luke Skywalker</p>
+
+            <img src="assets/images/lukeSkywalker.jpg" alt="placeholder">
+            <p id="luke-points">X</p>
+        </div>
+        <div class="border" id="obi">
+            <p>Obi Wan</p>
+
+            <img src="assets/images/obiWan.jpg" alt="placeholder">
+            <p id="obi-points">X</p>
+        </div>
+        <div class="border" id="sidius">
+            <p>Darth Sidius</p>
+
+            <img src="assets/images/darthSidious.jpg" alt="placeholder">
+            <p id="sidious-points">X</p>
+        </div>
+        <div class="border" id="maul">
+            <p>Darth Maul</p>
+
+            <img src="assets/images/DarthMaul.jpg" alt="placeholder">
+            <p id="maul-points">X</p>
+        </div>
     </div>
     <div class="characteres" id="userCharacter">
         <h2>Select Your Character</h2>
-
     </div>
+    <div id="enemies"></div>
+    <div id="fight"></div>
+    <div>
+        <button id="button">Attack</button>
+    </div>
+    <div id="defender"></div>
 
 </body>
 
