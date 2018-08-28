@@ -3,29 +3,26 @@ $(document).ready(function () {
     function Rnd(character) {
         character.attckPoints = 10 + Math.floor((Math.random() * 20) + 1);
         character.defensePoints = 50 + Math.floor((Math.random() * 150) + 1);
+        character.contraAttackPoints = 10 + Math.floor((Math.random() * 20) + 1);
     }
 
     let all = ["luke", "obi", "sidious", "maul"];
 
-    function personaje(name, attckPoints, defensePoints) {
+    function personaje(name, attckPoints, defensePoints, contraAttackPoints) {
         this.name = name;
         this.attckPoints = attckPoints;
         this.defensePoints = defensePoints;
+        this.contraAttackPoints = contraAttackPoints;
     }
 
-    let luke = new personaje("Luke Skywalker", 0, 0);
-    let obi = new personaje("Obi Wan", 0, 0);
-    let sidious = new personaje("Darth Sidious", 0, 0);
+    let luke = new personaje("Luke Skywalker");
+    let obi = new personaje("Obi Wan");
+    let sidious = new personaje("Darth Sidious");
     let maul = new personaje("Darth Maul");
 
     let userChar = "";
     let userEnemy = "";
     let end = false;
-
-    $(window).resize(function () {
-        console.log("width: " + $(window).width());
-        console.log("width: " + $(window).height());
-    });
 
     //Funcion para crear caracteres 
     function createChar(where, char, charname, showDF) {
