@@ -1,20 +1,8 @@
-$(document).ready(function() {
+$(document).ready(function () {
 
     function Rnd(character) {
         character.attckPoints = 10 + Math.floor((Math.random() * 20) + 1);
         character.defensePoints = 50 + Math.floor((Math.random() * 150) + 1);
-    }
-
-    function name(char) {
-        return char.name;
-    }
-
-    function defense(char) {
-        return char.defensePoints;
-    }
-
-    function attack(char) {
-        return char.attckPoints;
     }
 
     let all = ["luke", "obi", "sidious", "maul"];
@@ -51,9 +39,9 @@ $(document).ready(function() {
         let img = $("<img>");
         $(block).addClass("border");
         $(block).attr("id", charname)
-        $(nametext).text(name(char));
+        $(nametext).text(charname);
         if (showDF) {
-            $(defensePoints).text(defense(char));
+            $(defensePoints).text(char.defensePoints);
         } else {
             $(defensePoints).text("?");
         }
@@ -70,7 +58,7 @@ $(document).ready(function() {
     }
 
     //inicia 
-    $(".border").click(function(k) {
+    $(".border").click(function (k) {
 
         selChar = k.currentTarget.id;
 
@@ -98,7 +86,10 @@ $(document).ready(function() {
         }
     });
 
-    $("#enemies").click(function(t) {
+    $("#enemies").click(function (t) {
+
+        console.log(t);
+        console.log("UserEnemy: " + userEnemy);
 
         if (userEnemy == "") {
             userEnemy = t.target.parentElement.id;
@@ -128,12 +119,16 @@ $(document).ready(function() {
             $(fightText2).text("");
             $("#defenderText2").append(fightText2);
 
+            let fightText3 = $("<h3>");
+            $(fightText3).text("");
+            $("#defenderText3").append(fightText3);
+
 
         }
 
     });
 
-    $("#button").click(function(t) {
+    $("#button").click(function (t) {
 
         if (eval(userEnemy).defensePoints > 0 && eval(userChar).defensePoints > 0) {
 
@@ -147,6 +142,13 @@ $(document).ready(function() {
 
         }
         if (eval(userChar).defensePoints > 0 && eval(userEnemy).defensePoints < 0) {
+            $('#defenderText3').css('font-size', '2ch');
+            $("#defenderText3").text("Won, please select next oponent");
+            $("#" + userEnemy).remove();
+            userEnemy = "";
+
+
+
             console.log("Ganado");
         }
 
