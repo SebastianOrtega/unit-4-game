@@ -78,7 +78,7 @@ $(document).ready(function() {
         if (userChar == "") {
             userChar = k.currentTarget.id;
             $(".characteres").empty(); //borra a todos los caracteres
-            console.log("Selected Charcater: " + userChar);
+            console.log("Selected Charater: " + userChar);
             //Crea al casarcter seleccionado
             createChar("#userCharacter", eval(userChar), userChar, true);
             $("#yourChar").text("Your Character");
@@ -93,6 +93,8 @@ $(document).ready(function() {
             for (let n = 0; n < all.length; n++) {
                 createChar("#enemies", eval(all[n]), all[n], true);
             }
+            $('#enemies .border').css('background', 'red');
+            $('#enemies .border').css('font-size', '1.5ch');
         }
     });
 
@@ -114,6 +116,9 @@ $(document).ready(function() {
             console.log("Array: " + all);
             //Crea defensor
             createChar("#defender", eval(userEnemy), userEnemy, true);
+            $('#defender .border').css('background', 'black');
+            $('#defender .border').css('color', 'white');
+            $('#defender .border').css('font-size', '1.5ch');
 
             let fightText1 = $("<h3>");
             $(fightText1).text("");
@@ -130,17 +135,25 @@ $(document).ready(function() {
 
     $("#button").click(function(t) {
 
-        console.log(t);
-        $("#defenderText1").text("You attacked " + eval(userEnemy).name + " for " + eval(userChar).attckPoints + " damage");
-        eval(userChar).attckPoints += 10 + Math.floor((Math.random() * 10) + 1);
-        eval(userEnemy).defensePoints -= eval(userChar).attckPoints;
-        eval(userChar).defensePoints -= eval(userEnemy).attckPoints;
-        $("#" + userEnemy + "-points").text(eval(userEnemy).defensePoints);
-        $("#" + userChar + "-points").text(eval(userChar).defensePoints);
+        if (eval(userEnemy).defensePoints > 0 && eval(userChar).defensePoints > 0) {
 
+            $("#defenderText1").text("You attacked " + eval(userEnemy).name + " for " + eval(userChar).attckPoints + " damage");
+            eval(userChar).attckPoints += Math.floor((Math.random() * 10) + 1);
+            eval(userEnemy).defensePoints -= eval(userChar).attckPoints;
+            eval(userChar).defensePoints -= eval(userEnemy).attckPoints;
+            $("#" + userEnemy + "-points").text(eval(userEnemy).defensePoints);
+            $("#" + userChar + "-points").text(eval(userChar).defensePoints);
+            $("#defenderText2").text(eval(userEnemy).name + " attacked you back for " + eval(userEnemy).attckPoints + " damage");
 
+        }
+        if (eval(userChar).defensePoints > 0 && eval(userEnemy).defensePoints < 0) {
+            console.log("Ganado");
+        }
 
-        $("#defenderText2").text(eval(userEnemy).name + " attaked you back for " + eval(userEnemy).attckPoints + " damage");
+        if (eval(userChar).defensePoints < 0) {
+            console.log("Perdido");
+        }
+
 
 
 
