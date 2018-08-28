@@ -5,7 +5,7 @@ body {
     background-size: 100%;
     position: relative;
     color: white;
-    margin: 2%;
+    margin: 1%;
 }
 
 h1 {
@@ -19,13 +19,12 @@ h1 {
 }
 
 .characteres {
-    margin-top: 4%;
+    margin-top: 1%;
     font-family: 'Chango', cursive;
 }
 
 #userCharacter {
     margin-top: 1%;
-    display: none;
 }
 
 .border {
@@ -39,8 +38,9 @@ h1 {
     font-size: 1ch;
     text-align: center;
     line-height: 1.5;
-    margin-top: 4%;
+    margin-top: 1%;
     font-family: 'Chango', cursive;
+    margin-right: 10px;
 }
 
 img {
@@ -53,7 +53,7 @@ img {
     font-size: 2ch;
     width: 100px;
     font-family: 'Chango', cursive;
-    margin: 4%;
+    margin: 1%;
 }
 
 .selected {
@@ -61,6 +61,11 @@ img {
 }
 
 h2 {
-    margin-top: 4%;
+    margin-top: 5px;
+    font-family: 'Chango', cursive;
+}
+
+h3 {
+    font-size: 2ch;
     font-family: 'Chango', cursive;
 }
