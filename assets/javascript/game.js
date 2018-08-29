@@ -135,7 +135,8 @@ $(document).ready(function () {
             $("#defenderText1").text("You attacked " + eval(userEnemy).name + " for " + eval(userChar).attckPoints + " damage");
             eval(userChar).attckPoints += Math.floor((Math.random() * 10) + 1);
             eval(userEnemy).defensePoints -= eval(userChar).attckPoints;
-            eval(userChar).defensePoints -= eval(userEnemy).attckPoints;
+            if((eval(userEnemy).defensePoints>0))
+                eval(userChar).defensePoints -= eval(userEnemy).attckPoints;
             $("#" + userEnemy + "-points").text(eval(userEnemy).defensePoints);
             $("#" + userChar + "-points").text(eval(userChar).defensePoints);
             $("#defenderText2").text(eval(userEnemy).name + " attacked you back for " + eval(userEnemy).attckPoints + " damage");
