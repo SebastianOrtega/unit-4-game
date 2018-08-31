@@ -11,4 +11,7 @@ for **attack points**  you have ``10 plus 0 to 20 random.
 
 When you attack you gain from 0 to 10 random points at each battle
 
+The defendant points are hidden at first to make it hard. 
+
+
 
